@@ -1,0 +1,22 @@
+
+.input-icons {
+    position: relative;
+}
+
+.input-icons span {
+    position: absolute;
+    margin-top: -45px;
+    margin-left: 90%;
+}
+.input-icons-login{
+	position: relative;
+}
+.input-icons-login span{
+	position: absolute;
+    margin-top: -30px;
+    margin-left: 90%;
+}
+
+form {
+    background-color: #c6ccdb;
+}

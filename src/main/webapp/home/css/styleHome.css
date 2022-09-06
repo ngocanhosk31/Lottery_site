@@ -1,0 +1,43 @@
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+    html,
+    body {
+        font-family: 'Dancing Script', cursive;
+        width: 100%;
+        height: 100%;
+        font-size: 25px;
+        color: #222;
+        background-image: url('${pageContext.request.contextPath}/home/img/background.jpeg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .collapse li {
+        text-transform: uppercase;
+    }
+    
+    .logo {
+        border-radius: 50px;
+    }
+    
+    .navbar {
+        background-color: rgb(239, 150, 8) !important;
+    }
+    
+    .navbar li {
+        color: azure !important;
+    }
+    
+    .navbar li a {
+        color: azure !important;
+    }
+    
+    .navbar li a:hover {
+        color: #010505 !important;
+    }
+    
+    select,
+    input,
+    button {
+        border-radius: 10px;
+    }
