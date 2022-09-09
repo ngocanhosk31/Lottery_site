@@ -28,6 +28,7 @@
 <body>	
 	<%@include file="body.jsp"%>
 	<%@include file="delete.jsp"%>
+	<%@include file="edit.jsp"%>
 	<script src="${pageContext.request.contextPath}/manager/js/manager.js"></script>
 	<script src="${pageContext.request.contextPath}/manager/js/submit.js"></script> 
 </body>

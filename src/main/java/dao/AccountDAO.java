@@ -297,5 +297,15 @@ public static void changeRole(String s) throws ClassNotFoundException, SQLExcept
 	ps.executeUpdate();
 	conn.close();
 }
+public static void editName(String name ,String email) throws ClassNotFoundException, SQLException {
+	String query = "update tai_khoan set ho_ten = ? where email = ?";
+	Connection conn = DBContext.connect();
+	PreparedStatement ps = null;
+	ps = conn.prepareStatement(query);
+	ps.setString(1, name);
+	ps.setString(2, email);
+	ps.executeUpdate();
+	conn.close();
+}
 }
 

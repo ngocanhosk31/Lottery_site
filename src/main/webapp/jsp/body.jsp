@@ -10,10 +10,15 @@
 						Quản lý <b>lịch sử dò</b>
 					</h2>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-3">
 					<h2>Xin chào ${accountU.getHoTen() }</h2>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-3">
+				<a href="#editModal" class="btn btn-success" data-toggle="modal">
+		             <span>Chỉnh sửa họ tên</span>
+	             </a>
+				</div>
+				<div class="col-sm-2">
 					<a href="#deleteModal" class="btn btn-danger" data-toggle="modal">
 						<i class="material-icons">&#xE15C;</i> 
 						<span>Xoá</span>
@@ -69,10 +74,13 @@
 	<h5 style="color:green">${delMess}</h5>
 </div>
 <div>
+	<h5 style="color:green">${messE}</h5>
+</div>
+<div>
 	<h5 style="color:red">${delMessErr}</h5>
 </div>
 		<div class="menuFooter">
-			<div>
+			
 				<form action="SearchHistory?page=1" id="formSearch">
 					<input type="hidden" name="page" value="1" />
 					<table>
@@ -92,7 +100,8 @@
 					<tr><td><button>Tìm kiếm</button></td></tr>
 					</table>
 				</form>
-			</div>
+			
+			
 		</div>
 		<div class="clearfix">
 			<ul class="pagination">
