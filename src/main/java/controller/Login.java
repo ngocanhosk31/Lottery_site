@@ -90,6 +90,7 @@ public class Login extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("accountU", account);
 					session.setAttribute("listCity", listCity);
+					session.setMaxInactiveInterval(60*60*24);
 					response.sendRedirect("jsp/home.jsp");
 				}else if(account.isAdmin() == true) {
 					Cookie userCookie = new Cookie("email", email);
@@ -106,6 +107,7 @@ public class Login extends HttpServlet {
 					
 					HttpSession session = request.getSession();
 					session.setAttribute("accountA", account);
+					session.setMaxInactiveInterval(60*60*24);
 					response.sendRedirect("LotteryController");
 				}
 			}

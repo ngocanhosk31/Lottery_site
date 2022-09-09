@@ -48,8 +48,6 @@ public class ForgotPasswordController extends HttpServlet {
 		String confirmPass = request.getParameter("matKhauXacNhan");
 		if(Validate.validatePass(newPass) && newPass.equals(confirmPass) 
 				&& maXacNhan1.equals(maXacNhan2)) {
-			
-			
 			try {
 				AccountDAO.changePass(newPass, email);
 				

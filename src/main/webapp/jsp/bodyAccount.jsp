@@ -44,7 +44,7 @@
                         </td>
                         <td>${account.hoTen }</td>
                         <c:if test="${account.isUser() == true}">
-                        	<td><a href="${pageContext.request.contextPath}/HistoryU?email=${account.email}">${account.email}</a></td>
+                        	<td><a href="${pageContext.request.contextPath}/HistoryU?email=${account.email}&hoTen=${account.hoTen}">${account.email}</a></td>
                         	<td>User</td>
                         	<td>
                         		<a href="${pageContext.request.contextPath}/EditAccount?id=${account.id}" class="edit" data-toggle="modal" onclick="return confirm('Bạn muốn đổi quyền truy cập của tài khoản này sang Admin?')">
@@ -84,6 +84,9 @@
 			<h5 style="color:green">${messA}</h5>
 		</div>
 		<%session.invalidate(); %>
+		<c:if test="${empty listAccount}">
+			<h3>Không tìm thấy kết quả</h3>
+		</c:if>
        	<div class="menuFooter">
 			<div>
 				<h4>
@@ -107,7 +110,14 @@
         <div class="clearfix">
 			<ul class="pagination">
 				<c:forEach begin="1" end="${endPage}" var="i">
-					<li class="page-item"><a href="AccountController?page=${i}">${i}</a></li>
+					<li class="page-item">
+					<c:if test="${tenS == null && emailS == null}">
+						<a href="AccountController?page=${i}">${i}</a>
+					</c:if>
+					<c:if test="${tenS != null || emailS != null}">
+						<a href="SearchAccountController?page=${i}&ten=${tenS}&email=${emailS}">${i}</a>
+					</c:if>
+					</li>
 				</c:forEach>
 			</ul>
 		</div>    

@@ -33,6 +33,8 @@ public class DeleteAccount extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		String id = request.getParameter("id");
 		AccountDAO.deleteAccount(id);
+		HttpSession session = request.getSession();
+		session.setAttribute("messageA", "Xoá thành công");
 		request.getRequestDispatcher("AccountController").forward(request, response);
 		
 		

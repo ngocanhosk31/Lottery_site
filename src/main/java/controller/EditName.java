@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.AccountDAO;
+import entity.Account;
 
 /**
  * Servlet implementation class EditName
@@ -40,7 +42,13 @@ public class EditName extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.sendRedirect("HistoryController");
+		HttpSession session = request.getSession();
+		Account acc = (Account)session.getAttribute("accountU");
+		acc.setHoTen(hoTen);
+		session.setAttribute("accountU", acc);
+		request.setAttribute("EditMess", "Chỉnh sửa tên thành công");
+		request.getRequestDispatcher("HistoryController").forward(request, response);
+		//response.sendRedirect("HistoryController");
 	}
 
 	/**

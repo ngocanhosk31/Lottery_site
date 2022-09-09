@@ -107,8 +107,8 @@ public class SearchController extends HttpServlet {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("thoiGianS", thoiGian);
 		request.setAttribute("tinhS", tinh);	
-		request.setAttribute("listSLottery", listLottery);
-		request.getRequestDispatcher("jsp/searchLotteryResult.jsp").forward(request, response);
+		request.setAttribute("listLottery", listLottery);
+		request.getRequestDispatcher("jsp/lotteryManager.jsp").forward(request, response);
 		
 			
 

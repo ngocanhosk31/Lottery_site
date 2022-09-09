@@ -74,7 +74,7 @@
 	<h5 style="color:green">${delMess}</h5>
 </div>
 <div>
-	<h5 style="color:green">${messE}</h5>
+	<h5 style="color:green">${EditMess}</h5>
 </div>
 <div>
 	<h5 style="color:red">${delMessErr}</h5>

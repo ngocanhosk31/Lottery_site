@@ -35,6 +35,7 @@ public class HistoryU extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		String email = request.getParameter("email");
+		String hoTen = request.getParameter("hoTen");
 		int count = 0;
 		int index;
 		try {
@@ -57,6 +58,7 @@ public class HistoryU extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("hoTen", hoTen);
 		request.getRequestDispatcher("jsp/historyUser.jsp").forward(request, response);
 	}
 

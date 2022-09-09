@@ -51,8 +51,8 @@ public class CheckLottery extends HttpServlet {
 		String thoiGian = request.getParameter("thoiGian");
 		String maSo = request.getParameter("maSo");
 		List<String> listCity = new ArrayList<>();
+		HttpSession session = request.getSession();
 		try {
-			HttpSession session = request.getSession();
 			Account acc = (Account)session.getAttribute("accountU");
 			String hoTen = null;
 			String email = null;
@@ -65,58 +65,58 @@ public class CheckLottery extends HttpServlet {
 			Award award = LotteryCheckDAO.checkLottery(tinh, thoiGian);
 			if(award != null) {
 				if(Arrays.asList(award.getGiaiDacBiet()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải đặc biệt vé số đài "+tinh+"("+thoiGian+")");
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải đặc biệt vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải đặc biệt");
 					}
 				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải nhất vé số đài "+tinh+"("+thoiGian+")");
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải nhất vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải nhất");
 					}
-				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải nhì vé số đài "+tinh+"("+thoiGian+")");
+				}else if(Arrays.asList(award.getGiaiNhi()).contains(maSo)) {
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải nhì vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải nhì");
 					}
-				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải ba vé số đài "+tinh+"("+thoiGian+")");
+				}else if(Arrays.asList(award.getGiaiBa()).contains(maSo)) {
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải ba vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải ba");
 					}
-				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải tư vé số đài "+tinh+"("+thoiGian+")");
+				}else if(Arrays.asList(award.getGiaiTu()).contains(maSo)) {
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải tư vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải tư");
 					}
-				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải năm vé số đài "+tinh+"("+thoiGian+")");
+				}else if(Arrays.asList(award.getGiaiNam()).contains(maSo)) {
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải năm vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải năm");
 					}
-				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải sáu vé số đài "+tinh+"("+thoiGian+")");
+				}else if(Arrays.asList(award.getGiaiSau()).contains(maSo)) {
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải sáu vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải sáu");
 					}
-				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải bảy vé số đài "+tinh+"("+thoiGian+")");
+				}else if(Arrays.asList(award.getGiaiBay()).contains(maSo)) {
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải bảy vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải bảy");
 					}
-				}else if(Arrays.asList(award.getGiaiNhat()).contains(maSo)) {
-					request.setAttribute("result", "Chúc mừng bạn đã trúng giải tám vé số đài "+tinh+"("+thoiGian+")");
+				}else if(Arrays.asList(award.getGiaiTam()).contains(maSo)) {
+					session.setAttribute("result", "Chúc mừng bạn đã trúng giải tám vé số đài "+tinh+"("+thoiGian+")");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "giải tám");
 					}
 				}else {
-					request.setAttribute("result", "Vé số của bạn không trúng thưởng. Chúc bạn may mắn lần sau!");
+					session.setAttribute("result", "Vé số của bạn không trúng thưởng. Chúc bạn may mắn lần sau!");
 					if(acc != null) {
 						LotteryCheckDAO.addHistory(tinh, thoiGian, hoTen, email, maSo, "không trúng");
 					}
 				}
 			}else {
-				request.setAttribute("result", "Xin lỗi, dữ liệu vé số đài "+tinh+"("+thoiGian+")"+" chưa được cập nhật.");
+				session.setAttribute("result", "Xin lỗi, dữ liệu vé số đài "+tinh+"("+thoiGian+")"+" chưa được cập nhật.");
 			}
 			
 	  		try {
@@ -130,8 +130,8 @@ public class CheckLottery extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("listCity", listCity);
-		request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+		session.setAttribute("listCity", listCity);
+		response.sendRedirect("jsp/home.jsp");
 	}
 
 }

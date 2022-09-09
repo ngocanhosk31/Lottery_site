@@ -29,11 +29,11 @@
                     <h5 style="color:red">${error }</h5>
                     <h5 style="color:red" id='message'></h5>
                     <div class="form-group">
-                         <input type="hidden" class="form-control" value="${maXacNhan}" name="maXacNhan1" required>
+                         <input type="hidden" class="form-control" value="${maXacNhan}" name="maXacNhan1">
                     </div>
                             
                     <div class="form-group">
-                        <input type="hidden" class="form-control" value="${email }" name="email" placeholder="Email" required>
+                        <input type="hidden" class="form-control" value="${email}" name="email" placeholder="Email" required>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="maXacNhan2" placeholder="Mã xác nhận" required>

@@ -51,7 +51,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listLottery }" var="lottery">
+				<c:forEach items="${listLottery}" var="lottery">
 					<tr>
 						<td>
 						
@@ -101,6 +101,9 @@
 	<h5 style="color:green">${messageL}</h5>
 </div>
 <%session.invalidate(); %>
+			<c:if test="${empty listLottery}">
+				<h2>Không tìm thấy kết quả</h2>
+			</c:if>
 		<div class="menuFooter">
 			<div>
 				<h4>
@@ -137,9 +140,15 @@
 		<div class="clearfix">
 			<ul class="pagination">
 				<c:forEach begin="1" end="${endPage}" var="i">
-					<li class="page-item"><a href="LotteryController?page=${i}">${i}</a></li>
+					<li class="page-item">
+					<c:if test="${thoiGianS == null && tinhS == null}">
+						<a href="LotteryController?page=${i}">${i}</a>
+					</c:if>
+					<c:if test="${thoiGianS != null || tinhS != null}">
+						<a href="SearchController?page=${i}&thoiGian=${thoiGianS}&tinh=${tinhS}">${i}</a>
+					</c:if>
+					</li>
 				</c:forEach>
-
 			</ul>
 		</div>
 	</div>

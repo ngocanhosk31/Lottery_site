@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Arrays;
+
 public class Award {
 
 	private String[] giaiDacBiet;
@@ -77,6 +79,14 @@ public class Award {
 	}
 	public void setGiaiTam(String[] giaiTam) {
 		this.giaiTam = giaiTam;
+	}
+	@Override
+	public String toString() {
+		return "Award [giaiDacBiet=" + Arrays.toString(giaiDacBiet) + ", giaiNhat=" + Arrays.toString(giaiNhat)
+				+ ", giaiNhi=" + Arrays.toString(giaiNhi) + ", giaiBa=" + Arrays.toString(giaiBa) + ", giaiTu="
+				+ Arrays.toString(giaiTu) + ", giaiNam=" + Arrays.toString(giaiNam) + ", giaiSau="
+				+ Arrays.toString(giaiSau) + ", giaiBay=" + Arrays.toString(giaiBay) + ", giaiTam="
+				+ Arrays.toString(giaiTam) + "]";
 	}
 	
 }

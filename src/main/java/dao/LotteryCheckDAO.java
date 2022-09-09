@@ -4,14 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import context.DBContext;
 import entity.Award;
 
 public class LotteryCheckDAO {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		System.out.println(Arrays.asList(checkLottery("Bà Rịa – Vũng Tàu", "2022-08-11").getGiaiTu()).contains("6789"));
 
 	}
 public static Award checkLottery(String city, String time) throws ClassNotFoundException, SQLException {

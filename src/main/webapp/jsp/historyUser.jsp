@@ -35,11 +35,9 @@
 						Quản lý <b>lịch sử dò</b>
 					</h2>
 				</div>
-				<c:if test="${listHistory != null} ">
 				<div class="col-sm-4">
-					<h2>Tên người dùng: ${listHistory.get(0).hoTen}</h2>
+					<h2>Tên người dùng: ${hoTen}</h2>
 				</div>
-				</c:if>
 			</div>
 		</div>
 		<table class="table table-striped table-hover">

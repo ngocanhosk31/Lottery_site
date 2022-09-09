@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.AccountDAO;
 import gmail.SendEmail;
@@ -67,7 +68,8 @@ public class ForgotPassword extends HttpServlet {
 					e.printStackTrace();
 				}
 				request.setAttribute("email", email);
-				request.setAttribute("maXacNhan", randomCodeStr);
+				HttpSession session = request.getSession();
+				session.setAttribute("maXacNhan", randomCodeStr);
 				request.getRequestDispatcher("jsp/setForgotPass.jsp").forward(request, response);
 			}
 		} catch (ClassNotFoundException | SQLException e1) {

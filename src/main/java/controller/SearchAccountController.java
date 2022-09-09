@@ -96,8 +96,8 @@ public class SearchAccountController extends HttpServlet {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("tenS", ten);	
 		request.setAttribute("emailS", email);	
-		request.setAttribute("listSAccount", listAccount);
-		request.getRequestDispatcher("jsp/searchAccountResult.jsp").forward(request, response);
+		request.setAttribute("listAccount", listAccount);
+		request.getRequestDispatcher("jsp/accountManager.jsp").forward(request, response);
 	}
 
 }
