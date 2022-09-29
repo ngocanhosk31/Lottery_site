@@ -6,9 +6,9 @@
 		<div class="table-title">
 			<div class="row">
 				<div class="col-sm-4">
-					<h2>
-						Quản lý <b>lịch sử dò</b>
-					</h2>
+					<a href="jsp/home.jsp" style="text-decoration:none;"><h2 style="color:white;">
+						<b>Trang chủ</b>
+					</h2></a>
 				</div>
 				<div class="col-sm-3">
 					<h2>Xin chào ${accountU.getHoTen() }</h2>

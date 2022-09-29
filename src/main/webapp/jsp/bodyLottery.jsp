@@ -5,12 +5,22 @@
 	<div class="table-wrapper">
 		<div class="table-title">
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-4">
 					<h2>
 						Quản lý <b>vé số</b>
 					</h2>
 				</div>
-				<div class="col-sm-6">
+				<c:if test="${accountA == null}">
+	            <div class="col-sm-4">
+	           <a href="${pageContext.request.contextPath}/Login" style="color:white;font-size:160%;text-decoration:none;">Đăng nhập</a>
+	            </div>
+	            </c:if>
+				<c:if test="${sessionScope.accountA != null}">
+	            <div class="col-sm-4">
+	            <h3 style="margin-top: 2%;">Xin chào Admin</h3>
+	            </div>
+	            
+				<div class="col-sm-4">
 				
 				<form action="LoadCity">
 					<a href="#addModal" class="btn btn-success" data-toggle="modal">
@@ -23,8 +33,10 @@
 						<span>Xoá</span>
 					</a>
 				</div>
+				</c:if>
 			</div>
 		</div>
+		<c:if test="${sessionScope.accountA != null}">
 		<form action="${pageContext.request.contextPath}/DeleteLottery" id="DeleteLottery" method="POST">
 		<table class="table table-striped table-hover">
 			<thead>
@@ -77,13 +89,13 @@
 
 						<td>
 							<a href="LoadLottery?id=${ lottery.id}" class="edit" data-toggle="modal">
-							<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+							<i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i>
 							</a>
 						</td>
 						<td>
 							<a href="DeleteLottery?id=${lottery.id }" class="delete"data-toggle="modal" 
 							onclick="return confirm('Bạn có chắc chắn xoá không?')">
-							<i class="material-icons"data-toggle="tooltip" title="Delete">&#xE872;</i>
+							<i class="material-icons"data-toggle="tooltip" title="Xoá">&#xE872;</i>
 							</a>
 						</td>
 					</tr>
@@ -100,7 +112,9 @@
 <div>
 	<h5 style="color:green">${messageL}</h5>
 </div>
-<%session.invalidate(); %>
+<%session.removeAttribute("errorAddL"); %>
+<%session.removeAttribute("errorDeleteL"); %>
+<%session.removeAttribute("messageL"); %>
 			<c:if test="${empty listLottery}">
 				<h2>Không tìm thấy kết quả</h2>
 			</c:if>
@@ -151,6 +165,7 @@
 				</c:forEach>
 			</ul>
 		</div>
+		</c:if>
 	</div>
 </div>
 

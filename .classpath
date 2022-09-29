@@ -5,7 +5,6 @@
 	<classpathentry kind="src" path="src/main/webapp/WEB-INF/lib"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/ngocanh/Downloads/jaf-1.0.2/activation.jar"/>
 	<classpathentry kind="lib" path="/Users/ngocanh/Downloads/javamail-1.2/imap.jar"/>
 	<classpathentry kind="lib" path="/Users/ngocanh/Downloads/javamail-1.2/mail.jar"/>
 	<classpathentry kind="lib" path="/Users/ngocanh/Downloads/javamail-1.2/mailapi.jar"/>

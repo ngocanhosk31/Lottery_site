@@ -11,7 +11,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Họ và tên</label>
+                                <label>Họ và tên mới</label>
                                 <input type="text" class="form-control" name="hoTen" required>
                             </div>
                             <div class="form-group">

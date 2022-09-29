@@ -5,10 +5,21 @@
 	<div class="table-wrapper">
 	    <div class="table-title">
 	        <div class="row">
-	            <div class="col-sm-6">
+	            <div class="col-sm-4">
 	                <h2>Quản lý <b>tài khoản</b></h2>
 	            </div>
-	            <div class="col-sm-6">
+	            <c:if test="${sessionScope.accountA != null}">
+	            <div class="col-sm-4">
+	            <h3 style="margin-top: 2%;">Xin chào Admin</h3>
+	            </div>
+	            </c:if>
+	            <c:if test="${sessionScope.accountA == null}">
+	            <div class="col-sm-4">
+	           <a href="${pageContext.request.contextPath}/Login" style="color:white;font-size:160%;text-decoration:none;">Đăng nhập</a>
+	            </div>
+	            </c:if>
+	            <c:if test="${sessionScope.accountA != null}">
+	            <div class="col-sm-4">
 	                <a href="#addModal" class="btn btn-success" data-toggle="modal">
 		                <i class="material-icons">&#xE147;</i> 
 		                <span>Thêm mới</span>
@@ -18,8 +29,10 @@
 		                <span>Xoá</span>
 	                </a>
 	            </div>
+	            </c:if>
 	        </div>
 	    </div>
+	    <c:if test="${sessionScope.accountA != null}">
 	    <form action="${pageContext.request.contextPath}/DeleteAccount" id="DeleteAccount" method="POST">
 	    	<table class="table table-striped table-hover">
 	        	<thead>
@@ -60,7 +73,7 @@
                         <td>
                             <a href="${pageContext.request.contextPath}/DeleteAccount?id=${account.id}" class="delete" data-toggle="modal"
                             onclick="return confirm('Bạn có chắc chắn xoá không?')">
-                            <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                            <i class="material-icons" data-toggle="tooltip" title="Xoá">&#xE872;</i>
                             </a>
                         </td>
                     </tr>
@@ -83,7 +96,11 @@
 		<div>
 			<h5 style="color:green">${messA}</h5>
 		</div>
-		<%session.invalidate(); %>
+		<%session.removeAttribute("errorDeleteA"); %>
+		<%session.removeAttribute("errorAddA1"); %>
+		<%session.removeAttribute("errorAddA2"); %>
+		<%session.removeAttribute("messageA"); %>
+		<%session.removeAttribute("messA"); %>
 		<c:if test="${empty listAccount}">
 			<h3>Không tìm thấy kết quả</h3>
 		</c:if>
@@ -120,6 +137,7 @@
 					</li>
 				</c:forEach>
 			</ul>
-		</div>    
+		</div>  
+		</c:if>  
 	</div>
 </div>
